@@ -73,6 +73,7 @@ public class MyRunner {
         try (FileInputStream fis = new FileInputStream(JPEG_PATH))
         {
             CreateVisibleSignature signing = new CreateVisibleSignature(keyStore, PASSWORD.toCharArray());
+            System.out.println(signing);
             signing.setVisibleSignDesigner(inPath, 0, 0, -50, fis, 1);
             signing.setVisibleSignatureProperties("name", "location", "Security", 0, 1, true);
             signing.setExternalSigning(externallySign);
@@ -92,6 +93,7 @@ public class MyRunner {
         {
             // get string representation of pages COSObject
             origPageKey = document.getDocumentCatalog().getCOSObject().getItem(COSName.PAGES).toString();
+            System.out.println(origPageKey);
         }
         try (PDDocument document = Loader.loadPDF(signedFile))
         {
