@@ -243,8 +243,8 @@ public class CertInformationCollector
             try
             {
                 certificate.verify(issuer.getPublicKey(), SecurityProvider.getProvider());
-                LOG.info("Found the right Issuer Cert! for Cert: " + certificate.getSubjectX500Principal()
-                    + "\n" + issuer.getSubjectX500Principal());
+               // LOG.info("Found the right Issuer Cert! for Cert: " + certificate.getSubjectX500Principal()
+//                    + "\n" + issuer.getSubjectX500Principal());
                 certInfo.issuerCertificate = issuer;
                 certInfo.certChain = new CertSignatureInformation();
                 traverseChain(issuer, certInfo.certChain, maxDepth - 1);
@@ -282,7 +282,7 @@ public class CertInformationCollector
             return;
         }
         urlSet.add(certInfo.issuerUrl);
-        LOG.info("Get alternative issuer certificate from: " + certInfo.issuerUrl);
+       // LOG.info("Get alternative issuer certificate from: " + certInfo.issuerUrl);
         try
         {
             CertificateFactory certFactory = CertificateFactory.getInstance("X.509");

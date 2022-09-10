@@ -98,7 +98,7 @@ public final class CRLVerifier
             List<String> crlDistributionPointsURLs = getCrlDistributionPoints(cert);
             for (String crlDistributionPointsURL : crlDistributionPointsURLs)
             {
-                LOG.info("Checking distribution point URL: " + crlDistributionPointsURL);
+               // LOG.info("Checking distribution point URL: " + crlDistributionPointsURL);
 
                 X509CRL crl;
                 try
@@ -158,13 +158,13 @@ public final class CRLVerifier
 
                 if (!crl.getIssuerX500Principal().equals(cert.getIssuerX500Principal()))
                 {
-                    LOG.info("CRL issuer certificate is not identical to cert issuer, check needed");
+                   // LOG.info("CRL issuer certificate is not identical to cert issuer, check needed");
                     CertificateVerifier.verifyCertificate(crlIssuerCert, mergedCertSet, true, now);
-                    LOG.info("CRL issuer certificate checked successfully");
+                   // LOG.info("CRL issuer certificate checked successfully");
                 }
                 else
                 {
-                    LOG.info("CRL issuer certificate is identical to cert issuer, no extra check needed");
+                   // LOG.info("CRL issuer certificate is identical to cert issuer, no extra check needed");
                 }
 
                 checkRevocation(crl, cert, signDate, crlDistributionPointsURL);
@@ -220,12 +220,12 @@ public final class CRLVerifier
         }
         else if (revokedCRLEntry != null)
         {
-            LOG.info("The certificate was revoked after signing by CRL " +
-                    crlDistributionPointsURL + " on " + revokedCRLEntry.getRevocationDate());
+           // LOG.info("The certificate was revoked after signing by CRL " +
+//                    crlDistributionPointsURL + " on " + revokedCRLEntry.getRevocationDate());
         }
         else
         {
-            LOG.info("The certificate was not revoked by CRL " + crlDistributionPointsURL);
+           // LOG.info("The certificate was not revoked by CRL " + crlDistributionPointsURL);
         }
     }
 

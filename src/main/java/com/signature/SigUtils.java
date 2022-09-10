@@ -431,7 +431,7 @@ public class SigUtils
         }
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         int responseCode = con.getResponseCode();
-        LOG.info(responseCode + " " + con.getResponseMessage());
+       // LOG.info(responseCode + " " + con.getResponseMessage());
         if (responseCode == HttpURLConnection.HTTP_MOVED_TEMP ||
             responseCode == HttpURLConnection.HTTP_MOVED_PERM ||
             responseCode == HttpURLConnection.HTTP_SEE_OTHER)
@@ -443,13 +443,13 @@ public class SigUtils
             {
                 // redirection from http:// to https://
                 // change this code if you want to be more flexible (but think about security!)
-                LOG.info("redirection to " + location + " followed");
+               // LOG.info("redirection to " + location + " followed");
                 con.disconnect();
                 con = (HttpURLConnection) new URL(location).openConnection();
             }
             else
             {
-                LOG.info("redirection to " + location + " ignored");
+               // LOG.info("redirection to " + location + " ignored");
             }
         }
         return new ConnectedInputStream(con, con.getInputStream());

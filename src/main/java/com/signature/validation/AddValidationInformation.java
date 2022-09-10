@@ -290,7 +290,7 @@ public class AddValidationInformation
 
             if (certInfo.getOcspUrl() == null && certInfo.getCrlUrl() == null)
             {
-                LOG.info("No revocation information for cert " + certInfo.getCertificate().getSubjectX500Principal());
+               // LOG.info("No revocation information for cert " + certInfo.getCertificate().getSubjectX500Principal());
             }
             else if (!isRevocationInfoFound)
             {
@@ -589,7 +589,7 @@ public class AddValidationInformation
     }
 
     /**
-     * Adds Extensions to the document catalog. So that the use of DSS is identified. Described in
+     * Adds Extensions to the document cataLOG. So that the use of DSS is identified. Described in
      * PAdES Part 4, Chapter 4.4.
      *
      * @param catalog to add Extensions into

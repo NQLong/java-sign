@@ -236,8 +236,8 @@ public class OcspHelper
                                 revokedStatus.getRevocationTime(),
                                 revokedStatus.getRevocationTime());
                 }
-                LOG.info("The certificate was revoked after signing by OCSP " + ocspUrl + 
-                         " on " + revokedStatus.getRevocationTime());
+               // LOG.info("The certificate was revoked after signing by OCSP " + ocspUrl + 
+//                        " on " + revokedStatus.getRevocationTime());
             }
             else if (status != CertificateStatus.GOOD)
             {
@@ -383,7 +383,7 @@ public class OcspHelper
             LOG.error(curDate + " > " + nextUpdate);
             throw new OCSPException("OCSP: current date > nextUpdate field (RFC 5019 2.2.4.)");
         }
-        LOG.info("OCSP response is fresh");
+       // LOG.info("OCSP response is fresh");
     }
 
     /**
@@ -432,7 +432,7 @@ public class OcspHelper
             }
             else
             {
-                LOG.info("Nonce is good");
+               // LOG.info("Nonce is good");
                 return true;
             }
         }
@@ -480,12 +480,12 @@ public class OcspHelper
                 {
                     // redirection from http:// to https://
                     // change this code if you want to be more flexible (but think about security!)
-                    LOG.info("redirection to " + location + " followed");
+                   // LOG.info("redirection to " + location + " followed");
                     return performRequest(location);
                 }
                 else
                 {
-                    LOG.info("redirection to " + location + " ignored");
+                   // LOG.info("redirection to " + location + " ignored");
                 }
             }
             if (responseCode != HttpURLConnection.HTTP_OK)

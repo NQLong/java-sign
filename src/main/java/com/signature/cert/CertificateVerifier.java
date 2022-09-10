@@ -143,7 +143,7 @@ public final class CertificateVerifier
             }
             if (downloadSize > 0)
             {
-                LOG.info("CA issuers: " + downloadSize + " downloaded certificate(s) are new");
+               // LOG.info("CA issuers: " + downloadSize + " downloaded certificate(s) are new");
             }
 
             // Prepare a set of trust anchors (set of root CA certificates)
@@ -171,8 +171,8 @@ public final class CertificateVerifier
             PKIXCertPathBuilderResult verifiedCertChain = verifyCertificate(
                     cert, trustAnchors, intermediateCerts, signDate);
 
-            LOG.info("Certification chain verified successfully up to this root: " +
-                    verifiedCertChain.getTrustAnchor().getTrustedCert().getSubjectX500Principal());
+           // LOG.info("Certification chain verified successfully up to this root: " +
+//                    verifiedCertChain.getTrustAnchor().getTrustedCert().getSubjectX500Principal());
 
             checkRevocations(cert, certSet, signDate);
 
@@ -247,7 +247,7 @@ public final class CertificateVerifier
         }
         else
         {
-            LOG.info("OCSP not available, will try CRL");
+           // LOG.info("OCSP not available, will try CRL");
 
             // Check whether the certificate is revoked by the CRL
             // given in its CRL distribution point extension
@@ -329,13 +329,13 @@ public final class CertificateVerifier
             ASN1TaggedObject location = (ASN1TaggedObject) obj.getObjectAt(1);
             ASN1OctetString uri = (ASN1OctetString) location.getBaseObject();
             String urlString = new String(uri.getOctets());
-            LOG.info("CA issuers URL: " + urlString);
+           // LOG.info("CA issuers URL: " + urlString);
             try (InputStream in = SigUtils.openURL(urlString))
             {
                 CertificateFactory certFactory = CertificateFactory.getInstance("X.509");
                 Collection<? extends Certificate> altCerts = certFactory.generateCertificates(in);
                 altCerts.forEach(altCert -> resultSet.add((X509Certificate) altCert));
-                LOG.info("CA issuers URL: " + altCerts.size() + " certificate(s) downloaded");
+               // LOG.info("CA issuers URL: " + altCerts.size() + " certificate(s) downloaded");
             }
             catch (IOException ex)
             {
@@ -346,7 +346,7 @@ public final class CertificateVerifier
                 LOG.warn(ex.getMessage(), ex);
             }
         }
-        LOG.info("CA issuers: Downloaded " + resultSet.size() + " certificate(s) total");
+       // LOG.info("CA issuers: Downloaded " + resultSet.size() + " certificate(s) total");
         return resultSet;
     }
 
@@ -434,7 +434,7 @@ public final class CertificateVerifier
                 {
                     ASN1OctetString url = (ASN1OctetString) location.getBaseObject();
                     String ocspURL = new String(url.getOctets());
-                    LOG.info("OCSP URL: " + ocspURL);
+                   // LOG.info("OCSP URL: " + ocspURL);
                     return ocspURL;
                 }
             }
@@ -464,7 +464,7 @@ public final class CertificateVerifier
             throw new CertificateVerificationException("OCSP check not successful, status: "
                     + ocspResponse.getStatus());
         }
-        LOG.info("OCSP check successful");
+       // LOG.info("OCSP check successful");
 
         BasicOCSPResp basicResponse = (BasicOCSPResp) ocspResponse.getResponseObject();
         X509Certificate ocspResponderCertificate = ocspHelper.getOcspResponderCertificate();
@@ -474,17 +474,17 @@ public final class CertificateVerifier
             // A CA may specify that an OCSP client can trust a responder for the
             // lifetime of the responder's certificate.  The CA does so by
             // including the extension id-pkix-ocsp-nocheck.
-            LOG.info("Revocation check of OCSP responder certificate skipped (id-pkix-ocsp-nocheck is set)");
+           // LOG.info("Revocation check of OCSP responder certificate skipped (id-pkix-ocsp-nocheck is set)");
             return;
         }
 
         if (ocspHelper.getCertificateToCheck().equals(ocspResponderCertificate))
         {
-            LOG.info("OCSP responder certificate is identical to certificate to check");
+           // LOG.info("OCSP responder certificate is identical to certificate to check");
             return;
         }
 
-        LOG.info("Check of OCSP responder certificate");
+       // LOG.info("Check of OCSP responder certificate");
         Set<X509Certificate> additionalCerts2 = new HashSet<>(additionalCerts);
         JcaX509CertificateConverter certificateConverter = new JcaX509CertificateConverter();
         for (X509CertificateHolder certHolder : basicResponse.getCerts())
@@ -504,6 +504,6 @@ public final class CertificateVerifier
             }
         }
         CertificateVerifier.verifyCertificate(ocspResponderCertificate, additionalCerts2, true, now);
-        LOG.info("Check of OCSP responder certificate done");
+       // LOG.info("Check of OCSP responder certificate done");
     }
 }

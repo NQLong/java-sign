@@ -83,9 +83,9 @@ public class PDFMergerExample
             pdfMerger.setDestinationDocumentInformation(pdfDocumentInfo);
             pdfMerger.setDestinationMetadata(xmpMetadata);
 
-            LOG.info("Merging " + sources.size() + " source documents into one PDF");
+           // LOG.info("Merging " + sources.size() + " source documents into one PDF");
             pdfMerger.mergeDocuments(MemoryUsageSetting.setupMainMemoryOnly());
-            LOG.info("PDF merge successful, size = {" + mergedPDFOutputStream.size() + "} bytes");
+           // LOG.info("PDF merge successful, size = {" + mergedPDFOutputStream.size() + "} bytes");
 
             return new ByteArrayInputStream(mergedPDFOutputStream.toByteArray());
         }
@@ -102,7 +102,7 @@ public class PDFMergerExample
     private PDFMergerUtility createPDFMergerUtility(List<RandomAccessRead> sources,
             ByteArrayOutputStream mergedPDFOutputStream)
     {
-        LOG.info("Initialising PDF merge utility");
+       // LOG.info("Initialising PDF merge utility");
         PDFMergerUtility pdfMerger = new PDFMergerUtility();
 //        pdfMerger.addSources(sources);
         pdfMerger.setDestinationStream(mergedPDFOutputStream);
@@ -111,7 +111,7 @@ public class PDFMergerExample
 
     private PDDocumentInformation createPDFDocumentInfo(String title, String creator, String subject)
     {
-        LOG.info("Setting document info (title, author, subject) for merged PDF");
+       // LOG.info("Setting document info (title, author, subject) for merged PDF");
         PDDocumentInformation documentInformation = new PDDocumentInformation();
         documentInformation.setTitle(title);
         documentInformation.setCreator(creator);
@@ -122,7 +122,7 @@ public class PDFMergerExample
     private PDMetadata createXMPMetadata(COSStream cosStream, String title, String creator, String subject)
             throws BadFieldValueException, TransformerException, IOException
     {
-        LOG.info("Setting XMP metadata (title, author, subject) for merged PDF");
+       // LOG.info("Setting XMP metadata (title, author, subject) for merged PDF");
         XMPMetadata xmpMetadata = XMPMetadata.createXMPMetadata();
 
         // PDF/A-1b properties
