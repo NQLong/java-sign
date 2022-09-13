@@ -78,7 +78,7 @@ public class MyRunner {
             signing.setVisibleSignatureProperties("name", "location", "Security", 0, 1, true);
             signing.setExternalSigning(externallySign);
             destFile = new File(OUT_DIR + getOutputFileName("signed{0}_visible.pdf", externallySign));
-            signing.signPDF(new File(inPath), destFile, null);
+            signing.signPDF(new File(inPath), destFile, null, 2);
         }
 
         checkSignature(new File(inPath), destFile, false);

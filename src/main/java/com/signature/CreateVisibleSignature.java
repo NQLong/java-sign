@@ -189,9 +189,9 @@ public class CreateVisibleSignature extends CreateSignatureBase
      * @param tsaUrl optional TSA url
      * @throws IOException
      */
-    public void signPDF(File inputFile, File signedFile, String tsaUrl) throws IOException
+    public void signPDF(File inputFile, File signedFile, String tsaUrl, Integer signatureLevel) throws IOException
     {
-        this.signPDF(inputFile, signedFile, tsaUrl, null);
+        this.signPDF(inputFile, signedFile, tsaUrl, null, signatureLevel);
     }
 
     /**
@@ -204,7 +204,7 @@ public class CreateVisibleSignature extends CreateSignatureBase
      * @param signatureFieldName optional name of an existing (unsigned) signature field
      * @throws IOException
      */
-    public void signPDF(File inputFile, File signedFile, String tsaUrl, String signatureFieldName) throws IOException
+    public void signPDF(File inputFile, File signedFile, String tsaUrl, String signatureFieldName, Integer signatureLevel) throws IOException
     {
         if (inputFile == null || !inputFile.exists())
         {
@@ -251,7 +251,7 @@ public class CreateVisibleSignature extends CreateSignatureBase
             // PDF/A-1b requires PDF version 1.4 max, so don't increase the version on such files.
             if (doc.getVersion() >= 1.5f && accessPermissions == 0)
             {
-                SigUtils.setMDPPermission(doc, signature, 2);
+                SigUtils.setMDPPermission(doc, signature, signatureLevel);
             }
 
             PDAcroForm acroForm = doc.getDocumentCatalog().getAcroForm(null);
@@ -460,7 +460,7 @@ public class CreateVisibleSignature extends CreateSignatureBase
         }
         signing.setVisibleSignatureProperties("name", "location", "Security", 0, page, true);
         signing.setExternalSigning(externalSig);
-        signing.signPDF(documentFile, signedDocumentFile, tsaUrl);
+        signing.signPDF(documentFile, signedDocumentFile, tsaUrl, 2);
     }
 
     /**
