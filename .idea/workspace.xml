@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="872a4988-8ae1-45f8-b9d5-649dde29351d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/times-new-roman.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/times new roman.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/signature/CreateVisibleSignature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/signature/CreateVisibleSignature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/signature/MyRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/signature/MyRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/signer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/signer/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +39,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2DOzSvBgkMOYDVT7WC68ltCmFbj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -62,8 +70,13 @@
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/libs" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/signer" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JAR Application.run">
     <configuration name="run (1)" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/java-sign-utils-1.0-jar-with-dependencies.jar" />
       <option name="PROGRAM_PARAMETERS" value="--imgPath $PROJECT_DIR$/resources/001.0068.png --keystorePath $PROJECT_DIR$/resources/certificate.p12 --scale -80 --input $PROJECT_DIR$/resources/2.pdf --output $PROJECT_DIR$/test-output/test.out.pdf" />

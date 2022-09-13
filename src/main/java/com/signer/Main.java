@@ -10,7 +10,7 @@ import java.security.KeyStore;
 
 import org.apache.pdfbox.cos.COSDictionary;
 import org.apache.pdfbox.cos.COSName;
-import org.apache.pdfbox.examples.signature.CreateVisibleSignature;
+import com.signature.CreateVisibleSignature;
 import org.apache.pdfbox.examples.signature.cert.CertificateVerificationException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -28,11 +28,14 @@ import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.tsp.TSPException;
 import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.pdmodel.font.encoding.WinAnsiEncoding;
 
 public class Main {
-    public static String name = "name", location = "location", imgPath = "", inputPath = "", outputPath = "", reason = "security", keystorePath = "", passphrase = "";
+    public static String name = "name", location = "location", imgPath = "", inputPath = "", outputPath = "", reason = "security", keystorePath = "", passphrase = "", mode = "addSignature";
 
-    public static Integer page = 1, x = 0, y = 0, signatureLevel = 2, scale = -50, preferSize = 0;
+    public static Integer page = 1, x = 0, y = 0, signatureLevel = 1, scale = -50, preferSize = 0;
+
+    public static Double fontSize = 20.0;
 
     public static void parseParams(String[] args) throws IOException {
 //--imgPath /home/ben19024/workspace/java-sign/resources/001.0068.png --keystorePath /home/ben19024/workspace/java-sign/resources/certificate.p12 --scale -80 --input /home/ben19024/workspace/java-sign/resources/2.pdf --output /home/ben19024/workspace/java-sign/test-output/test.out.pdf
@@ -67,26 +70,32 @@ public class Main {
                 keystorePath = args[++i];
             } else if (args[i].equals("--scale"))
                 scale = Integer.parseInt(args[++i]);
-
+            else if (args[i].equals("--fontSize"))
+                fontSize = Double.parseDouble(args[++i]);
+            else if (args[i].equals("--mode"))
+                mode = args[++i];
         }
     }
 
-    public static void main(String[] args)
+    public static void AddSignature(String[] args)
             throws IOException, CMSException, OperatorCreationException, GeneralSecurityException,
             TSPException, CertificateVerificationException {
-//        parseParams(args);
-//        KeyStore keyStore = KeyStore.getInstance("PKCS12");
-//        keyStore.load(new FileInputStream(keystorePath), passphrase.toCharArray());
-//        File destFile;
-//        try (FileInputStream fis = new FileInputStream(imgPath)) {
-//            CreateVisibleSignature signing = new CreateVisibleSignature(keyStore, passphrase.toCharArray());
-//            signing.setVisibleSignDesigner(inputPath, x, y, scale, fis, page);
-//            signing.setVisibleSignatureProperties(name, location, reason, preferSize, page, true);
-//            signing.setExternalSigning(false);
-//            destFile = new File(outputPath);
-//            signing.signPDF(new File(inputPath), destFile, null);
-//        }
-        PDDocument document = Loader.loadPDF(new File("resources/3.pdf"));
+        parseParams(args);
+        KeyStore keyStore = KeyStore.getInstance("PKCS12");
+        keyStore.load(new FileInputStream(keystorePath), passphrase.toCharArray());
+        File destFile;
+        try (FileInputStream fis = new FileInputStream(imgPath)) {
+            CreateVisibleSignature signing = new CreateVisibleSignature(keyStore, passphrase.toCharArray());
+            signing.setVisibleSignDesigner(inputPath, x, y, scale, fis, page);
+            signing.setVisibleSignatureProperties(name, location, reason, preferSize, page, true);
+            signing.setExternalSigning(false);
+            destFile = new File(outputPath);
+            signing.signPDF(new File(inputPath), destFile, null, signatureLevel);
+        }
+    }
+
+    public static void AddSoVanBan() throws IOException {
+        PDDocument document = Loader.loadPDF(new File(inputPath));
 
         PDAcroForm form = document.getDocumentCatalog().getAcroForm();
         PDPage page = document.getDocumentCatalog().getPages().get(0);
@@ -99,7 +108,9 @@ public class Main {
         if (resources == null) {
             resources = new PDResources();
         }
-        PDFont font = new PDType1Font(Standard14Fonts.FontName.TIMES_BOLD);
+
+        File fontFile = new File("resources/times-new-roman.ttf");
+        PDFont font = PDTrueTypeFont.load(document, fontFile, WinAnsiEncoding.INSTANCE);
         COSName fontName = resources.add(font);
 //        resources.put(COSName.getPDFName("Helv"), font);
         form.setDefaultResources(resources);
@@ -107,7 +118,7 @@ public class Main {
         PDTextField textField = new PDTextField(form);
         textField.setPartialName("SampleField");
 
-        String defaultAppearance = "/" +fontName.getName()+ " 10 Tf 0 0 1 rg";
+        String defaultAppearance = "/" +fontName.getName()+ " " + fontSize + " Tf 0 0 0 rg";
         textField.setDefaultAppearance(defaultAppearance);
 
         form.getFields().add(textField);
@@ -133,7 +144,13 @@ public class Main {
         // set the field value
         textField.setValue("Sample field content");
 
-        FileOutputStream fos = new FileOutputStream(new File("resources/4.pdf"));
+        FileOutputStream fos = new FileOutputStream(new File(outputPath));
         document.saveIncremental(fos);
+    }
+    public static void main(String[] args)
+            throws IOException, CMSException, OperatorCreationException, GeneralSecurityException,
+            TSPException, CertificateVerificationException {
+        if (mode == "addSignature") AddSignature(args);
+        else AddSoVanBan();
     }
 }
