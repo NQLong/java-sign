@@ -1,0 +1,50 @@
+[33mcommit d4b1ae232e18c3d2aa4343ce9d8344f317e2797a[m[33m ([m[1;36mHEAD -> [m[1;32mmaven-3.0.0-alpha3[m[33m)[m
+Author: Long Nguyen <nqlong0709@gmail.com>
+Date:   Tue Oct 4 08:24:10 2022 +0700
+
+    fix add function
+
+[33mcommit 433e8d8d9274418a22284534706efebf7ef9b45e[m[33m ([m[1;31morigin/maven-3.0.0-alpha3[m[33m)[m
+Merge: df780c7e b907b750
+Author: HIEU QUANG <48277973+hieuquang2212@users.noreply.github.com>
+Date:   Tue Sep 13 16:05:36 2022 +0700
+
+    Merge pull request #1 from NQLong/feature/hieu/addTruaTypeFont
+    
+    add true type font and signature mode
+
+[33mcommit b907b7505fe7cc15683dc69b931bce59f6b9bc70[m[33m ([m[1;31morigin/feature/hieu/addTruaTypeFont[m[33m)[m
+Author: hieu.ngo <hieu.ngo@bnksolution.com>
+Date:   Tue Sep 13 15:53:30 2022 +0700
+
+    add true type font and signature mode
+
+[33mcommit df780c7e3456cef3b971a6f76cd0a4c2c4c5176a[m
+Author: Long Nguyen <nqlong0709@gmail.com>
+Date:   Sat Sep 10 11:00:38 2022 +0700
+
+    continue
+
+[33mcommit 1d35bbdcbb0e23f68216a5240ef129775b82b8e6[m
+Author: Long Nguyen <nqlong0709@gmail.com>
+Date:   Tue Aug 16 02:16:39 2022 +0700
+
+    init
+
+[33mcommit a31a1780065c97eed69360eeb1160905b2b25341[m
+Author: Long Nguyen <nqlong0709@gmail.com>
+Date:   Tue Aug 16 02:16:01 2022 +0700
+
+    init
+
+[33mcommit 100854beb3be4f095392e70f8d57f20afa5a3502[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m, [m[1;32mjava/signature[m[33m)[m
+Author: Long Nguyen <nqlong0709@gmail.com>
+Date:   Thu Aug 11 01:00:28 2022 +0700
+
+    init
+
+[33mcommit d70beaafaae292d7d24a25ad465949011fda7b0a[m[33m ([m[1;31morigin/java/signature[m[33m)[m
+Author: LongNguyen <nqlong0709@gmail.com>
+Date:   Wed Aug 10 20:04:45 2022 +0700
+
+    init java

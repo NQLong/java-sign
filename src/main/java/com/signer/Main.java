@@ -22,6 +22,7 @@ import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceRGB;
 import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationWidget;
 import org.apache.pdfbox.pdmodel.interactive.annotation.PDAppearanceCharacteristicsDictionary;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
+import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.apache.pdfbox.pdmodel.interactive.form.PDTextField;
 import org.apache.pdfbox.pdmodel.interactive.form.PDVariableText;
 import org.bouncycastle.cms.CMSException;
@@ -31,16 +32,14 @@ import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.font.encoding.WinAnsiEncoding;
 
 public class Main {
-    public static String name = "name", location = "location", imgPath = "", inputPath = "", outputPath = "", reason = "security", keystorePath = "", passphrase = "", mode = "addSignature";
+    public static String soVanBan = "", ttfPath = "", name = "name", location = "location", imgPath = "", inputPath = "", outputPath = "", reason = "security", keystorePath = "", passphrase = "", mode = "addSignature";
 
-    public static Integer page = 1, x = 0, y = 0, signatureLevel = 1, scale = -50, preferSize = 0;
+    public static Integer page = 1, x = 0, y = 0, signatureLevel = 1, scale = -50, preferSize = 0, width = 400;
 
-    public static Double fontSize = 20.0;
+    public static Float fontSize = 20.0f;
 
     public static void parseParams(String[] args) throws IOException {
-//--imgPath /home/ben19024/workspace/java-sign/resources/001.0068.png --keystorePath /home/ben19024/workspace/java-sign/resources/certificate.p12 --scale -80 --input /home/ben19024/workspace/java-sign/resources/2.pdf --output /home/ben19024/workspace/java-sign/test-output/test.out.pdf
         for (int i = 0; i + 1 < args.length; i++) {
-
             System.out.println("\"" + args[i] + "\"" + " " + "\"" + args[i + 1] + "\"");
             if (args[i].equals("--input"))
                 inputPath = args[++i];
@@ -71,16 +70,21 @@ public class Main {
             } else if (args[i].equals("--scale"))
                 scale = Integer.parseInt(args[++i]);
             else if (args[i].equals("--fontSize"))
-                fontSize = Double.parseDouble(args[++i]);
+                fontSize = Float.parseFloat(args[++i]);
             else if (args[i].equals("--mode"))
                 mode = args[++i];
+            else if (args[i].equals("--ttfPath"))
+                ttfPath = args[++i];
+            else if (args[i].equals("--soVanBan"))
+                soVanBan = args[++i];
+            else if (args[i].equals("--width"))
+                width = Integer.parseInt(args[++i]);
         }
     }
 
-    public static void AddSignature(String[] args)
+    public static void addSignature()
             throws IOException, CMSException, OperatorCreationException, GeneralSecurityException,
             TSPException, CertificateVerificationException {
-        parseParams(args);
         KeyStore keyStore = KeyStore.getInstance("PKCS12");
         keyStore.load(new FileInputStream(keystorePath), passphrase.toCharArray());
         File destFile;
@@ -94,7 +98,20 @@ public class Main {
         }
     }
 
-    public static void AddSoVanBan() throws IOException {
+
+    public static void fillSoVanBanForm() throws IOException {
+        PDDocument document = Loader.loadPDF(new File(inputPath));
+        PDAcroForm acroForm = document.getDocumentCatalog().getAcroForm();
+        if (acroForm != null)
+        {
+            PDField field =acroForm.getField( "soVanBan" );
+            field.setValue(soVanBan);
+        }
+        FileOutputStream fos = new FileOutputStream(outputPath);
+        document.saveIncremental(fos);
+    }
+
+    public static void addSoVanBanForm() throws IOException {
         PDDocument document = Loader.loadPDF(new File(inputPath));
 
         PDAcroForm form = document.getDocumentCatalog().getAcroForm();
@@ -109,30 +126,23 @@ public class Main {
             resources = new PDResources();
         }
 
-        File fontFile = new File("resources/times-new-roman.ttf");
+        File fontFile = new File(ttfPath);
         PDFont font = PDTrueTypeFont.load(document, fontFile, WinAnsiEncoding.INSTANCE);
         COSName fontName = resources.add(font);
-//        resources.put(COSName.getPDFName("Helv"), font);
         form.setDefaultResources(resources);
 
         PDTextField textField = new PDTextField(form);
-        textField.setPartialName("SampleField");
+        textField.setPartialName("soVanBan");
 
-        String defaultAppearance = "/" +fontName.getName()+ " " + fontSize + " Tf 0 0 0 rg";
+        String defaultAppearance = "/" + fontName.getName() + " " + fontSize + " Tf 0 0 0 rg";
         textField.setDefaultAppearance(defaultAppearance);
 
         form.getFields().add(textField);
 
         PDAnnotationWidget widget = textField.getWidgets().get(0);
-        PDRectangle rect = new PDRectangle(450, 350, 200, 50);
+        PDRectangle rect = new PDRectangle(x, y, width, fontSize + 8);
         widget.setRectangle(rect);
         widget.setPage(page);
-
-//        PDAppearanceCharacteristicsDictionary fieldAppearance
-//                = new PDAppearanceCharacteristicsDictionary(new COSDictionary());
-//        fieldAppearance.setBorderColour(new PDColor(new float[]{0,1,0}, PDDeviceRGB.INSTANCE));
-//        fieldAppearance.setBackground(new PDColor(new float[]{1,1,0}, PDDeviceRGB.INSTANCE));
-//        widget.setAppearanceCharacteristics(fieldAppearance);
 
         widget.setPrinted(true);
 
@@ -142,15 +152,18 @@ public class Main {
         textField.setQ(PDVariableText.QUADDING_LEFT);
 
         // set the field value
-        textField.setValue("Sample field content");
+        textField.setValue("Số văn bản");
 
         FileOutputStream fos = new FileOutputStream(new File(outputPath));
         document.saveIncremental(fos);
     }
+
     public static void main(String[] args)
             throws IOException, CMSException, OperatorCreationException, GeneralSecurityException,
             TSPException, CertificateVerificationException {
-        if (mode == "addSignature") AddSignature(args);
-        else AddSoVanBan();
+        parseParams(args);
+        if (mode == "addSignature") addSignature();
+        else if (mode == "addSoVanBanForm") addSoVanBanForm();
+        else fillSoVanBanForm();
     }
 }
