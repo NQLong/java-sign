@@ -31,6 +31,8 @@ import org.bouncycastle.tsp.TSPException;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.font.encoding.WinAnsiEncoding;
 
+import static java.lang.Math.round;
+
 public class Main {
     public static String soVanBan = "", ttfPath = "", name = "name", location = "location", imgPath = "", inputPath = "", outputPath = "", reason = "security", keystorePath = "", passphrase = "", mode = "addSignature";
 
@@ -100,18 +102,23 @@ public class Main {
 
 
     public static void fillSoVanBanForm() throws IOException {
+        System.out.println("fillSoVanBanForm");
+
         PDDocument document = Loader.loadPDF(new File(inputPath));
         PDAcroForm acroForm = document.getDocumentCatalog().getAcroForm();
-        if (acroForm != null)
-        {
-            PDField field =acroForm.getField( "soVanBan" );
-            field.setValue(soVanBan);
+        if (acroForm != null) {
+            PDField field = acroForm.getField("soVanBan");
+            if (field != null) {
+                field.setValue(soVanBan);
+            }
         }
         FileOutputStream fos = new FileOutputStream(outputPath);
         document.saveIncremental(fos);
     }
 
     public static void addSoVanBanForm() throws IOException {
+        System.out.println("addSoVanBanForm");
+
         PDDocument document = Loader.loadPDF(new File(inputPath));
 
         PDAcroForm form = document.getDocumentCatalog().getAcroForm();
@@ -140,7 +147,9 @@ public class Main {
         form.getFields().add(textField);
 
         PDAnnotationWidget widget = textField.getWidgets().get(0);
-        PDRectangle rect = new PDRectangle(x, y, width, fontSize + 8);
+        float pageHeight = page.getMediaBox().getHeight();
+        float pageWidth = page.getMediaBox().getWidth();
+        PDRectangle rect = new PDRectangle(round(x - ), y, width, fontSize + 8);
         widget.setRectangle(rect);
         widget.setPage(page);
 
@@ -152,7 +161,7 @@ public class Main {
         textField.setQ(PDVariableText.QUADDING_LEFT);
 
         // set the field value
-        textField.setValue("Số văn bản");
+//        textField.setValue("Số văn bản");
 
         FileOutputStream fos = new FileOutputStream(new File(outputPath));
         document.saveIncremental(fos);
@@ -162,8 +171,8 @@ public class Main {
             throws IOException, CMSException, OperatorCreationException, GeneralSecurityException,
             TSPException, CertificateVerificationException {
         parseParams(args);
-        if (mode == "addSignature") addSignature();
-        else if (mode == "addSoVanBanForm") addSoVanBanForm();
-        else fillSoVanBanForm();
+        if (mode.equals("addSignature")) addSignature();
+        else if (mode.equals("addSoVanBanForm")) addSoVanBanForm();
+        else if (mode.equals("fillSoVanBanForm")) fillSoVanBanForm();
     }
 }

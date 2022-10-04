@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="872a4988-8ae1-45f8-b9d5-649dde29351d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/signer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/signer/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/signer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signer/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/java-sign-utils-1.0-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/java-sign-utils-1.0-jar-with-dependencies.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/java-sign-utils-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/java-sign-utils-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +169,8 @@
       <workItem from="1662365469276" duration="1172000" />
       <workItem from="1662781871611" duration="970000" />
       <workItem from="1664812392140" duration="4831000" />
+      <workItem from="1664875074292" duration="257000" />
+      <workItem from="1664875797696" duration="2153000" />
     </task>
     <servers />
   </component>
