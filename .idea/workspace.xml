@@ -6,44 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="872a4988-8ae1-45f8-b9d5-649dde29351d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/signer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/signer/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/CreateEmbeddedTimeStamp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/CreateEmbeddedTimeStamp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/CreateEmptySignatureForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/CreateEmptySignatureForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/CreateSignature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/CreateSignature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/CreateSignatureBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/CreateSignatureBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/CreateSignedTimeStamp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/CreateSignedTimeStamp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/CreateVisibleSignature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/CreateVisibleSignature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/CreateVisibleSignature2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/CreateVisibleSignature2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/MyRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/MyRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/ShowSignature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/ShowSignature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/SigUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/SigUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/TSAClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/TSAClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/ValidationTimeStamp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/ValidationTimeStamp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/cert/CRLVerifier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/cert/CRLVerifier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/cert/CertificateVerifier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/cert/CertificateVerifier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/cert/OcspHelper$SHA1DigestCalculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/cert/OcspHelper$SHA1DigestCalculator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/cert/OcspHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/cert/OcspHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/validation/AddValidationInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/validation/AddValidationInformation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/validation/CertInformationCollector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/validation/CertInformationCollector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/validation/CertInformationHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/validation/CertInformationHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/signer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signer/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/AddWatermarkText.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/AddWatermarkText.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/DrawPrintTextLocations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/DrawPrintTextLocations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/ExtractTextByArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/ExtractTextByArea.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/ExtractTextSimple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/ExtractTextSimple.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/PDFHighlighter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/PDFHighlighter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/PDFMergerExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/PDFMergerExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/PrintImageLocations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/PrintImageLocations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/PrintTextColors.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/PrintTextColors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/PrintTextLocations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/PrintTextLocations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/RemoveAllText.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/RemoveAllText.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/util/SplitBooklet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/util/SplitBooklet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/java-sign-utils-1.0-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/java-sign-utils-1.0-jar-with-dependencies.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/java-sign-utils-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/java-sign-utils-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
