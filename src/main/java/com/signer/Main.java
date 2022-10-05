@@ -17,6 +17,7 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDResources;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.*;
+import org.apache.pdfbox.pdmodel.font.encoding.StandardEncoding;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
 import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceRGB;
 import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationWidget;
@@ -134,7 +135,7 @@ public class Main {
         }
 
         File fontFile = new File(ttfPath);
-        PDFont font = PDTrueTypeFont.load(document, fontFile, WinAnsiEncoding.INSTANCE);
+        PDFont font = PDTrueTypeFont.load(document, fontFile, StandardEncoding.INSTANCE);
         COSName fontName = resources.add(font);
         form.setDefaultResources(resources);
 
@@ -148,8 +149,7 @@ public class Main {
 
         PDAnnotationWidget widget = textField.getWidgets().get(0);
         float pageHeight = page.getMediaBox().getHeight();
-        float pageWidth = page.getMediaBox().getWidth();
-        PDRectangle rect = new PDRectangle(round(x - ), y, width, fontSize + 8);
+        PDRectangle rect = new PDRectangle(round(x - width / 2), pageHeight - (fontSize + 8) / 2 - y, width, fontSize + 8);
         widget.setRectangle(rect);
         widget.setPage(page);
 
@@ -161,7 +161,7 @@ public class Main {
         textField.setQ(PDVariableText.QUADDING_LEFT);
 
         // set the field value
-//        textField.setValue("Số văn bản");
+        textField.setValue("{So Van Ban}");
 
         FileOutputStream fos = new FileOutputStream(new File(outputPath));
         document.saveIncremental(fos);
