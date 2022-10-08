@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="872a4988-8ae1-45f8-b9d5-649dde29351d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/times-new-roman.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/times new roman.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/signature/CreateVisibleSignature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/signature/CreateVisibleSignature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/signature/MyRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/signature/MyRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/signer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/signer/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/signer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signer/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/java-sign-utils-1.0-jar-with-dependencies.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/java-sign-utils-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/java-sign-utils-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
