@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
+import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.pdfbox.cos.COSDictionary;
 import org.apache.pdfbox.cos.COSName;
@@ -37,7 +40,7 @@ import static java.lang.Math.round;
 public class Main {
     public static String soVanBan = "", ttfPath = "", name = "name", location = "location", imgPath = "", inputPath = "", outputPath = "", reason = "security", keystorePath = "", passphrase = "", mode = "addSignature";
 
-    public static Integer page = 1, x = 0, y = 0, signatureLevel = 1, scale = -50, preferSize = 0, width = 400;
+    public static Integer page = 1, x = 0, y = 0, signatureLevel = 1, scale = -50, preferSize = 0, width = 400, xOffset = 0, yOffset = 0;
 
     public static Float fontSize = 20.0f;
 
@@ -82,18 +85,20 @@ public class Main {
                 soVanBan = args[++i];
             else if (args[i].equals("--width"))
                 width = Integer.parseInt(args[++i]);
+            else if (args[i].equals("--xOffset"))
+                xOffset = Integer.parseInt(args[++i]);
+            else if (args[i].equals("--yOffset"))
+                yOffset = Integer.parseInt(args[++i]);
         }
     }
 
-    public static void addSignature()
-            throws IOException, CMSException, OperatorCreationException, GeneralSecurityException,
-            TSPException, CertificateVerificationException {
+    public static void addSignature() throws IOException, GeneralSecurityException {
         KeyStore keyStore = KeyStore.getInstance("PKCS12");
         keyStore.load(new FileInputStream(keystorePath), passphrase.toCharArray());
         File destFile;
         try (FileInputStream fis = new FileInputStream(imgPath)) {
             CreateVisibleSignature signing = new CreateVisibleSignature(keyStore, passphrase.toCharArray());
-            signing.setVisibleSignDesigner(inputPath, x, y, scale, fis, page);
+            signing.setVisibleSignDesigner(inputPath, x + xOffset, y + yOffset, scale, fis, page);
             signing.setVisibleSignatureProperties(name, location, reason, preferSize, page, true);
             signing.setExternalSigning(false);
             destFile = new File(outputPath);
@@ -135,7 +140,7 @@ public class Main {
         }
 
         File fontFile = new File(ttfPath);
-        PDFont font = PDTrueTypeFont.load(document, fontFile, StandardEncoding.INSTANCE);
+        PDFont font = PDType0Font.load(document, new FileInputStream(ttfPath), false);
         COSName fontName = resources.add(font);
         form.setDefaultResources(resources);
 
@@ -161,7 +166,7 @@ public class Main {
         textField.setQ(PDVariableText.QUADDING_LEFT);
 
         // set the field value
-        textField.setValue("{So Van Ban}");
+        textField.setValue("{Số văn bản}");
 
         FileOutputStream fos = new FileOutputStream(new File(outputPath));
         document.saveIncremental(fos);

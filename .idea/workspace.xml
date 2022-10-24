@@ -143,7 +143,7 @@
       <method v="2" />
     </configuration>
     <configuration name="INSTALL &amp; CP" type="ShConfigurationType">
-      <option name="SCRIPT_TEXT" value=" rm ~/workspace/hcmussh/asset/jar/java-sign-utils-1.0-jar-with-dependencies.jar; cp ~/workspace/java-sign/target/java-sign-utils-1.0-jar-with-dependencies.jar ~/workspace/hcmussh/asset/jar/ " />
+      <option name="SCRIPT_TEXT" value=" rm ~/workspace/hcmussh-all/hcmussh/asset/jar/java-sign-utils-1.0-jar-with-dependencies.jar; cp ~/workspace/java-sign/target/java-sign-utils-1.0-jar-with-dependencies.jar ~/workspace/hcmussh-all/hcmussh/asset/jar/ " />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
       <option name="SCRIPT_PATH" value="" />
       <option name="SCRIPT_OPTIONS" value="" />
@@ -191,6 +191,13 @@
       <workItem from="1664875074292" duration="257000" />
       <workItem from="1664875797696" duration="2153000" />
       <workItem from="1664905922251" duration="4973000" />
+      <workItem from="1664958781494" duration="608000" />
+      <workItem from="1665981085166" duration="1507000" />
+      <workItem from="1666324759098" duration="1976000" />
+      <workItem from="1666339681541" duration="830000" />
+      <workItem from="1666433879940" duration="2602000" />
+      <workItem from="1666586680325" duration="449000" />
+      <workItem from="1666596932908" duration="1935000" />
     </task>
     <servers />
   </component>
