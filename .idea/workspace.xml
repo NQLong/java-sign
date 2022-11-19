@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="872a4988-8ae1-45f8-b9d5-649dde29351d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/signature/CreateVisibleSignature2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/signature/CreateVisibleSignature2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/signer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/signer/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/signature/CreateVisibleSignature2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signature/CreateVisibleSignature2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/signer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/signer/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/java-sign-utils-1.0-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/java-sign-utils-1.0-jar-with-dependencies.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/java-sign-utils-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/java-sign-utils-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
@@ -78,7 +79,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/signer" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.INSTALL &amp; CP">
+  <component name="RunManager" selected="JAR Application.run">
     <configuration name="run (1)" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/java-sign-utils-1.0-jar-with-dependencies.jar" />
       <option name="PROGRAM_PARAMETERS" value="--imgPath $PROJECT_DIR$/resources/001.0068.png --keystorePath $PROJECT_DIR$/resources/certificate.p12 --scale -80 --input $PROJECT_DIR$/resources/2.pdf --output $PROJECT_DIR$/test-output/test.out.pdf" />
@@ -197,7 +198,9 @@
       <workItem from="1666339681541" duration="830000" />
       <workItem from="1666433879940" duration="2602000" />
       <workItem from="1666586680325" duration="449000" />
-      <workItem from="1666596932908" duration="1935000" />
+      <workItem from="1666596932908" duration="3630000" />
+      <workItem from="1668651736670" duration="12268000" />
+      <workItem from="1668670870320" duration="2632000" />
     </task>
     <servers />
   </component>

@@ -1,10 +1,8 @@
 package com.signer;
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.awt.geom.Rectangle2D;
+import java.io.*;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.util.Iterator;
@@ -14,17 +12,14 @@ import java.util.regex.Pattern;
 import org.apache.pdfbox.cos.COSDictionary;
 import org.apache.pdfbox.cos.COSName;
 import com.signature.CreateVisibleSignature;
+import com.signature.CreateVisibleSignature2;
 import org.apache.pdfbox.examples.signature.cert.CertificateVerificationException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDResources;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.*;
-import org.apache.pdfbox.pdmodel.font.encoding.StandardEncoding;
-import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
-import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceRGB;
 import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationWidget;
-import org.apache.pdfbox.pdmodel.interactive.annotation.PDAppearanceCharacteristicsDictionary;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.apache.pdfbox.pdmodel.interactive.form.PDTextField;
@@ -33,7 +28,6 @@ import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.tsp.TSPException;
 import org.apache.pdfbox.Loader;
-import org.apache.pdfbox.pdmodel.font.encoding.WinAnsiEncoding;
 
 import static java.lang.Math.round;
 
@@ -139,7 +133,6 @@ public class Main {
             resources = new PDResources();
         }
 
-        File fontFile = new File(ttfPath);
         PDFont font = PDType0Font.load(document, new FileInputStream(ttfPath), false);
         COSName fontName = resources.add(font);
         form.setDefaultResources(resources);
@@ -172,12 +165,55 @@ public class Main {
         document.saveIncremental(fos);
     }
 
+    public static void signWithText() throws IOException, GeneralSecurityException {
+        // 0,0 means most left and top
+//        inputPath = "resources/Baocaohoatdongnam.pdf";
+//        keystorePath = "resources/certificate.p12";
+//        outputPath = "resources/outhello.pdf";
+//        ttfPath = "resources/times.ttf";
+//        soVanBan = "kasdj lkasjdlk jaslkjd jlkasjdlkasjd lkajd \nad kajdslk jaslskdj  llkasjdlkasj dlkaj d";
+//        fontSize = 14f;
+        String tsaUrl = null;
+        // External signing is needed if you are using an external signing service, e.g. to sign
+        // several files at once.
+        boolean externalSig = true;
+
+        File ksFile = new File(keystorePath);
+        KeyStore keystore = KeyStore.getInstance("PKCS12");
+        try (InputStream is = new FileInputStream(ksFile))
+        {
+            keystore.load(is, passphrase.toCharArray());
+        }
+
+        File documentFile = new File(inputPath);
+
+        CreateVisibleSignature2 signing = new CreateVisibleSignature2(keystore, passphrase.toCharArray());
+
+        File signedDocumentFile;
+        signedDocumentFile = new File(outputPath);
+
+        signing.setExternalSigning(externalSig);
+        signing.setTtfPath(ttfPath);
+        signing.setFontSize(fontSize);
+        signing.setVisibleText(soVanBan);
+        // Set the signature rectangle
+        // Although PDF coordinates start from the bottom, humans start from the top.
+        // So a human would want to position a signature (x,y) units from the
+        // top left of the displayed page, and the field has a horizontal width and a vertical height
+        // regardless of page rotation.
+        Rectangle2D humanRect = new Rectangle2D.Float(x + xOffset, y + yOffset, width, fontSize + 10);
+
+        signing.signPDF(documentFile, signedDocumentFile, humanRect, tsaUrl);
+    }
+
     public static void main(String[] args)
             throws IOException, CMSException, OperatorCreationException, GeneralSecurityException,
             TSPException, CertificateVerificationException {
         parseParams(args);
+//        mode = "signWithText";
         if (mode.equals("addSignature")) addSignature();
         else if (mode.equals("addSoVanBanForm")) addSoVanBanForm();
         else if (mode.equals("fillSoVanBanForm")) fillSoVanBanForm();
+        else if (mode.equals("signWithText")) signWithText();
     }
 }
