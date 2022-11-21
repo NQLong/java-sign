@@ -87,6 +87,16 @@ public class CreateVisibleSignature2 extends CreateSignatureBase {
 
     private String visibleText = null;
 
+    public Integer getPageNumber() {
+        return pageNumber;
+    }
+
+    public void setPageNumber(Integer pageNumber) {
+        this.pageNumber = pageNumber;
+    }
+
+    private  Integer pageNumber = null;
+
     public Float getFontSize() {
         return fontSize;
     }
@@ -250,7 +260,7 @@ public class CreateVisibleSignature2 extends CreateSignatureBase {
 
             // register signature dictionary and sign interface
             signatureOptions = new SignatureOptions();
-            signatureOptions.setVisualSignature(createVisualSignatureTemplate(doc, 0, rect, signature));
+            signatureOptions.setVisualSignature(createVisualSignatureTemplate(doc, getPageNumber(), rect, signature));
             signatureOptions.setPage(0);
             doc.addSignature(signature, signatureInterface, signatureOptions);
 

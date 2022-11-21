@@ -196,6 +196,7 @@ public class Main {
         signing.setTtfPath(ttfPath);
         signing.setFontSize(fontSize);
         signing.setVisibleText(soVanBan);
+        signing.setPageNumber(page);
         // Set the signature rectangle
         // Although PDF coordinates start from the bottom, humans start from the top.
         // So a human would want to position a signature (x,y) units from the
