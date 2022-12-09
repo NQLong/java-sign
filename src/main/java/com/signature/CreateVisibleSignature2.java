@@ -435,7 +435,7 @@ public class CreateVisibleSignature2 extends CreateSignatureBase {
                 // show text
                 float fontSize = getFontSize();
 //                float leading = fontSize * 1.5f;
-                float leading = fontSize * 1.1f;
+                float leading = fontSize + 10;
                 cs.beginText();
                 cs.setFont(font, fontSize);
                 cs.setNonStrokingColor(Color.black);

@@ -79,7 +79,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/signer" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.run">
+  <component name="RunManager" selected="Shell Script.INSTALL &amp; CP">
     <configuration name="run (1)" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/java-sign-utils-1.0-jar-with-dependencies.jar" />
       <option name="PROGRAM_PARAMETERS" value="--imgPath $PROJECT_DIR$/resources/001.0068.png --keystorePath $PROJECT_DIR$/resources/certificate.p12 --scale -80 --input $PROJECT_DIR$/resources/2.pdf --output $PROJECT_DIR$/test-output/test.out.pdf" />
@@ -144,7 +144,7 @@
       <method v="2" />
     </configuration>
     <configuration name="INSTALL &amp; CP" type="ShConfigurationType">
-      <option name="SCRIPT_TEXT" value=" rm ~/workspace/hcmussh-all/hcmussh/asset/jar/java-sign-utils-1.0-jar-with-dependencies.jar; cp ~/workspace/java-sign/target/java-sign-utils-1.0-jar-with-dependencies.jar ~/workspace/hcmussh-all/hcmussh/asset/jar/ " />
+      <option name="SCRIPT_TEXT" value=" rm $WORKSPACE_DIR/asset/jar/java-sign-utils-1.0-jar-with-dependencies.jar; cp ~/workspace/java-sign/target/java-sign-utils-1.0-jar-with-dependencies.jar $WORKSPACE_DIR/asset/jar/ " />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
       <option name="SCRIPT_PATH" value="" />
       <option name="SCRIPT_OPTIONS" value="" />
@@ -201,6 +201,9 @@
       <workItem from="1666596932908" duration="3630000" />
       <workItem from="1668651736670" duration="12268000" />
       <workItem from="1668670870320" duration="2632000" />
+      <workItem from="1668848665127" duration="342000" />
+      <workItem from="1669604971498" duration="2050000" />
+      <workItem from="1670229620524" duration="744000" />
     </task>
     <servers />
   </component>

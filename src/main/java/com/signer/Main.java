@@ -196,13 +196,13 @@ public class Main {
         signing.setTtfPath(ttfPath);
         signing.setFontSize(fontSize);
         signing.setVisibleText(soVanBan);
-        signing.setPageNumber(page);
+        signing.setPageNumber(page -1);
         // Set the signature rectangle
         // Although PDF coordinates start from the bottom, humans start from the top.
         // So a human would want to position a signature (x,y) units from the
         // top left of the displayed page, and the field has a horizontal width and a vertical height
         // regardless of page rotation.
-        Rectangle2D humanRect = new Rectangle2D.Float(x + xOffset, y + yOffset, width, fontSize + 10);
+        Rectangle2D humanRect = new Rectangle2D.Float(x + xOffset, y + yOffset, width, fontSize + 20);
 
         signing.signPDF(documentFile, signedDocumentFile, humanRect, tsaUrl);
     }
